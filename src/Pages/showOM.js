@@ -32,13 +32,6 @@ export const ShowPageOM = () => {
 
   useEffect(function () {
 
-    // url = f"https://www.onemap.gov.sg/api/staticmap/getStaticImage?\
-    //     layerchosen=default&latitude={lat}&longitude={long}&\
-    //     points=[{lat},{long}]&postal=&zoom=17&width=400&height=512&fillColor=0,255,0"
-    // headers = {"Authorization": record["access_token"]}
-    // response = requests.request("GET", url, headers=headers)
-    // print(response.content)
-
     debugger
     if (om_token && lat && long) {
 

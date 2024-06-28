@@ -2,6 +2,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 
 import { Login } from '../Components/Form/form';
+import { SearchOM } from '../Components/Form/searchOM';
 import { AuthContext } from '../context'; // Import the context
 
 export const ShowPage = () => {
@@ -10,6 +11,7 @@ export const ShowPage = () => {
   // const [userid, setUserid] = useState([]);
   // const [token, setToken] = useState(null);
   const {token, setToken, userid, setUserid, om_userid, om_setUserid, om_token, om_setToken } = useContext(AuthContext);
+  const [hotel_name, setHotelName] = useState(null);
 
   const getToken = (user, a_token) => {
     debugger
@@ -18,14 +20,14 @@ export const ShowPage = () => {
   };
 
   function handleClick(hotel_name) {
-    alert('You clicked on: ' + hotel_name);
+    alert(`You clicked on ${hotel_name}`);
+    setHotelName(hotel_name);
   }
 
   useEffect(function () {
  
-    console.log(token);
     debugger
-    if (token) {
+    if (token && !hotel_name) {
         const encodedCredentials = btoa(`${userid}:${token}`);
         // Create the headers object with the authorization header
         const headers = {
@@ -52,7 +54,7 @@ export const ShowPage = () => {
                 setLoadedPosts([]);
             });
         }},
-        [token, userid]);
+        [token, userid, hotel_name]);
 
   // debugger
   return (
@@ -65,12 +67,14 @@ export const ShowPage = () => {
 
             { token && loadedPosts && loadedPosts.length > 0 && (
               <div className="card-body text-center">
-              <h1 className="display-4 mt-5 animate__animated animate__tada" style={{fontSize: '2rem'}}>Listing of All Packages</h1>
+                <h1 className="display-4 mt-5 animate__animated animate__tada" style={{fontSize: '2rem'}}>Listing of All Packages</h1>
+                <div className="banner">User ID: {userid}</div> {/* Add the banner here */}
                 <ul className="list-group mt-4 mb-4">
                   {loadedPosts.map((post) => (
                     <li key={post.id} className="list-group-item toBeClicked" onClick={() => handleClick(post.hotel_name)}>{post.hotel_name}</li>
                   ))}
                 </ul>
+                <button className="btn btn-primary" onClick={() => setToken(null)}>Logout</button> {/* Add the logout button here */}
               </div>
 
             )}
