@@ -32,7 +32,7 @@ services:
 
   nginx:
     container_name: ict381reactWeb
-    image: react
+    image: ict381_nginx_react
     build: 
       context: .
       dockerfile: DockerfileReact
