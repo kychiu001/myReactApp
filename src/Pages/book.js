@@ -43,7 +43,8 @@ export const Book = ({hotel_name, set_hotel_name}) => {
     };
     
     // Call the API to create a new booking
-    const url = process.env.REACT_APP_IP_ADDRESS ? `http://${process.env.REACT_APP_IP_ADDRESS}:5000` : 'http://localhost:5000';
+    // const url = process.env.REACT_APP_IP_ADDRESS ? `http://${process.env.REACT_APP_IP_ADDRESS}:5000` : 'http://localhost:5000';
+    const url = 'http://localhost:5000'; // Replace with your actual API URL
     fetch(`${url}/api/book/newBooking`, {
         method: 'POST',
         headers: headers,

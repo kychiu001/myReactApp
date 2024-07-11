@@ -15,8 +15,8 @@ export const Login = ({getToken}) => {
         // const headers = {
         //     Authorization: `Basic ${encodedCredentials}`,
         // };
-        const url = process.env.REACT_APP_IP_ADDRESS ? `http://${process.env.REACT_APP_IP_ADDRESS}:5000` : 'http://localhost:5000';
-        // const url = 'http://localhost:5000'; // Replace with your actual API URL
+        // const url = process.env.REACT_APP_IP_ADDRESS ? `http://${process.env.REACT_APP_IP_ADDRESS}:5000` : 'http://localhost:5000';
+        const url = 'http://localhost:5000'; // Replace with your actual API URL
         fetch(`${url}/api/user/gettoken`, {
             method: 'POST',
             headers: {
