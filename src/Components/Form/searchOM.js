@@ -62,14 +62,21 @@ export const SearchOM = ({getCoord}) => {
                 const response = await fetch(url);
                 const data = await response.json();
                 debugger
-                if (data['results'].length === 0) {
-                    keepFetching = false;
-                } else {
-                    i += 1;
-                    for (let result of data['results']) {
-                        queryResults.push(result);
-                    }
+                // if (data['results'].length === 0) {
+                //     keepFetching = false;
+                // } else {
+                //     i += 1;
+                //     for (let result of data['results']) {
+                //         queryResults.push(result);
+                //     }
+                // }
+                for (let result of data['results']) {
+                    queryResults.push(result);
                 }
+                if (data['totalNumPages'] === i) 
+                    keepFetching = false;
+                else
+                    i++;
             }
         
             return queryResults;
