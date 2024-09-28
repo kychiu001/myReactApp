@@ -52,7 +52,9 @@ export const Manage = () => {
         };
 
         // Send the POST request
-        const url = 'http://localhost:5000'; // Replace with your actual API URL
+        // const url = 'http://localhost:5000'; // Replace with your actual API URL
+        const server_address = window.location.hostname;
+        const url = `http://${server_address}:5000`;  
         fetch(`${url}/api/book/updateBooking`, {
             method: 'POST',
             headers: headers,
@@ -100,7 +102,9 @@ export const Manage = () => {
         };
 
         // Send the POST request
-        const url = 'http://localhost:5000'; // Replace with your actual API URL
+        // const url = 'http://localhost:5000'; // Replace with your actual API URL
+        const server_address = window.location.hostname;
+        const url = `http://${server_address}:5000`;  
         fetch(`${url}/api/book/deleteBooking`, {
             method: 'POST',
             headers: headers,
@@ -145,7 +149,9 @@ export const Manage = () => {
 
         // Send the POST request
         // const url = process.env.REACT_APP_IP_ADDRESS ? `http://${process.env.REACT_APP_IP_ADDRESS}:5000` : 'http://localhost:5000'; // Replace with your actual API URL
-        const url = 'http://localhost:5000'; // Replace with your actual API URL
+        // const url = 'http://localhost:5000'; // Replace with your actual API URL
+        const server_address = window.location.hostname;
+        const url = `http://${server_address}:5000`;  
         fetch(`${url}/api/book/manageBooking`, {
             method: 'POST',
             headers: headers,
