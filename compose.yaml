@@ -1,0 +1,30 @@
+
+services:
+  frontend:
+    container_name: ict381app
+    image: ict381_staycation
+    networks:
+    - ict381network
+    ports:
+    - "5000:5000"
+
+  db:
+    container_name: ict381db
+    image: ict381_mongo
+    networks:
+    - ict381network
+    ports:
+    - "27017:27017"
+
+  myReactApp:
+    container_name: myReactApp
+    image: ict381_myreactapp
+    networks:
+    - ict381network
+    ports:
+    - "80:80"
+    depends_on:
+    - frontend
+
+networks:
+  ict381network:
