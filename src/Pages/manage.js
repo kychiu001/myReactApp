@@ -81,8 +81,10 @@ export const Manage = () => {
             // Handle any errors
             console.error(error);
         })
-    
-        setLoadedBookings([]);
+        .finally(() => {
+            // This will always run
+            setLoadedBookings([]);
+        });
     }
 
   
@@ -130,9 +132,10 @@ export const Manage = () => {
             // Handle any errors
             console.error(error);
         })
-    
-        debugger
-        setLoadedBookings([]);
+        .finally(() => {
+            // This will always run
+            setLoadedBookings([]);
+        });
     }
 
   
