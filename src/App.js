@@ -24,7 +24,7 @@ function App() {
         <Router>
           <nav>
             <div className="d-flex justify-content-center mt-5 transparent-border">
-              <Link to="/STX" className="btn btn-primary me-2"><i className="bi bi-graph-up"></i> STX1</Link>
+              <Link to="/STX" className="btn btn-primary me-2"><i className="bi bi-graph-up"></i> STX</Link>
               <span style={{ margin: '0 10px' }}></span>
               <Link to="/OM" className="btn btn-secondary"><i className="bi bi-toggles2"></i> OM</Link>
               <span style={{ margin: '0 10px' }}></span>
