@@ -48,7 +48,7 @@ export const Manage = () => {
         // Create the headers object with the authorization header
         const headers = {
             Authorization: `Basic ${encodedCredentials}`,
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
         };
 
         // Send the POST request
@@ -58,12 +58,12 @@ export const Manage = () => {
         fetch(`${url}/api/book/updateBooking`, {
             method: 'POST',
             headers: headers,
-            body: new URLSearchParams({
+            body: JSON.stringify({
                 user_email: userid,
                 hotel_name: hotel_name,
                 old_check_in_date: old_check_in_date,
                 new_check_in_date: new_check_in_date
-              })
+            })
         }).then(response => {
             if (response.status === 201) {
                 return response.json();
@@ -100,7 +100,7 @@ export const Manage = () => {
         // Create the headers object with the authorization header
         const headers = {
             Authorization: `Basic ${encodedCredentials}`,
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
         };
 
         // Send the POST request
@@ -110,11 +110,11 @@ export const Manage = () => {
         fetch(`${url}/api/book/deleteBooking`, {
             method: 'POST',
             headers: headers,
-            body: new URLSearchParams({
+            body: JSON.stringify({
                 user_email: userid,
                 hotel_name: hotel_name,
                 check_in_date: check_in_date
-              })
+            })
         }).then(response => {
             if (response.status === 201) {
                 return response.json();
@@ -147,7 +147,7 @@ export const Manage = () => {
         // Create the headers object with the authorization header
         const headers = {
             Authorization: `Basic ${encodedCredentials}`,
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
         };
 
         // Send the POST request
@@ -158,9 +158,9 @@ export const Manage = () => {
         fetch(`${url}/api/book/manageBooking`, {
             method: 'POST',
             headers: headers,
-            body: new URLSearchParams({
+            body: JSON.stringify({
                 user_email: userid,
-              })
+            })
         }).then(response => response.json())
         .then(message => {
           console.log('API Response:', message);

@@ -39,7 +39,7 @@ export const Book = ({hotel_name, set_hotel_name}) => {
     const encodedCredentials = btoa(`${userid}:${token}`);
     const headers = {
       Authorization: `Basic ${encodedCredentials}`,
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json'
     };
     
     // Call the API to create a new booking
@@ -50,11 +50,11 @@ export const Book = ({hotel_name, set_hotel_name}) => {
     fetch(`${url}/api/book/newBooking`, {
         method: 'POST',
         headers: headers,
-        body: new URLSearchParams({
+        body: JSON.stringify({
             user_email: userid,
             hotel_name: hotel_name,
             check_in_date: selectedDate
-          })
+        })
     })
     .then(response => {
         if (response.status === 201) {
